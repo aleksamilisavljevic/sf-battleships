@@ -1,0 +1,37 @@
+<h1> Welcome! </h1>
+<div class="top-right-group">
+    <div class="top-mid-group">
+        <div class="top-mid-group1">
+            <p> Username: </p>
+        </div>
+        <div class="top-mid-group2">
+            <input #usernameInput type="text" placeholder="Username..." />
+        </div>
+    </div>
+    <div class="top-mid-group">
+        <div class="top-mid-group1">
+            <p> Password: </p>
+        </div>
+        <div class="top-mid-group2">
+            <input #passwordInput type="password"/>
+        </div>
+    </div>
+    <div class="top-mid-group">
+        <div class="top-mid-group1">
+            <p> First Name: </p>
+        </div>
+        <div class="top-mid-group2">
+            <input #firstNameInput type="text" placeholder="First Name..." />
+        </div>
+    </div>
+    <div class="top-mid-group">
+        <div class="top-mid-group1">
+            <p> Last Name: </p>
+        </div>
+        <div class="top-mid-group2">
+            <input #lastNameInput type="text" placeholder="Last Name..." />
+        </div>
+    </div>
+    <button (click)="register(usernameInput.value,passwordInput.value,firstNameInput.value,lastNameInput.value)">Register</button>
+    <p>{{message}}</p>
+</div>

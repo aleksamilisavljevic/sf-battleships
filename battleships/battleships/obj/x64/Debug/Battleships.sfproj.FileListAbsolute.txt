@@ -1,0 +1,3 @@
+C:\Users\aleksam\Documents\battleships\battleships\battleships\battleships\obj\x64\Debug\Battleships.sfproj.CoreCompileInputs.cache
+C:\Users\aleks\Desktop\battleships\battleships\battleships\battleships\obj\x64\Debug\battleships.sfproj.CoreCompileInputs.cache
+D:\battleships\battleships\battleships\battleships\obj\x64\Debug\battleships.sfproj.CoreCompileInputs.cache

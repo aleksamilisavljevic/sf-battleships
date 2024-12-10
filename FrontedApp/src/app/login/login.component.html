@@ -1,0 +1,21 @@
+<p> Please log in with your username to see more. </p>
+<div class="top-right-group">
+    <div class="top-mid-group">
+        <div class="top-mid-group1">
+            <p> Username: </p>
+        </div>
+        <div class="top-mid-group2">
+            <input #usernameInput type="text" placeholder="Username..." />
+        </div>
+    </div>
+    <div class="top-mid-group">
+        <div class="top-mid-group1">
+            <p> Password: </p>
+        </div>
+        <div class="top-mid-group2">
+            <input #passwordInput type="password"/>
+        </div>
+    </div>
+    <button (click)="login(usernameInput.value,passwordInput.value)">Login</button>
+    <p> {{message}} </p>
+</div>

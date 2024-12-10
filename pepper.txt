@@ -1,0 +1,7 @@
+$json = '{"properties": {"kind": "inlinedValue", "contentType": "text/plain", "description": "pepper"}}'
+Invoke-WebRequest  -Uri http://localhost:19080/Resources/Secrets/pepper?api-version=6.4-preview -Method PUT -Body $json
+
+$Params = '{"properties": {"value": "g8ad9sgdoasgbd8as+_fvgas876gdas87hb7GH*_)gbfvg8fvVF"}}'
+Invoke-WebRequest -Uri http://localhost:19080/Resources/Secrets/pepper/values/ver1?api-version=6.4-preview -Method PUT -Body $Params
+
+Invoke-WebRequest -Method POST -Uri "http://localhost:19080/Resources/Secrets/pepper/values/ver1/list_value?api-version=6.4-preview"

@@ -1,0 +1,48 @@
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+.top-right-group {
+    text-align: center;
+    align-items: center;
+}
+.top-mid-group {
+    display: block;
+    height: 50px;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.top-mid-group1 {
+    float: left;
+    display:flex;
+    align-items: center;
+    margin-top: auto;
+    justify-content: center;
+    margin-bottom: auto;
+    height: 100%;
+    display:flex;
+    width: 40%;
+    overflow: hidden;
+}
+.top-mid-group2 {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 100%;
+    width: 40%;
+    overflow: hidden;
+}
+
+input, button {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

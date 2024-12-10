@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StartupServicesManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="BotLogicService_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="AuthenticationService_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="RegistrationService_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="API_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="UserData_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="UserData_PartitionCount" DefaultValue="3" />
+    <Parameter Name="UserData_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="BotActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="BotActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="BotActorService_TargetReplicaSetSize" DefaultValue="3" />
+  </Parameters>
+  <Services>
+    <!-- The section below creates instances of service types, when an instance of this 
+         application type is created. You can also create one or more instances of service type using the 
+         ServiceFabric PowerShell module.
+
+         The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
+    <Service Name="BotLogicService" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="BotLogicServiceType" InstanceCount="[BotLogicService_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="AuthenticationService" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="AuthenticationServiceType" InstanceCount="[AuthenticationService_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="RegistrationService" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="RegistrationServiceType" InstanceCount="[RegistrationService_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="API" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="APIType" InstanceCount="[API_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="UserData" ServicePackageActivationMode="ExclusiveProcess">
+      <StatefulService ServiceTypeName="UserDataType" TargetReplicaSetSize="[UserData_TargetReplicaSetSize]" MinReplicaSetSize="[UserData_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[UserData_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="BotActorService" GeneratedIdRef="60afe0db-9b9f-4a7b-b90b-b35d25a5521b|Persisted">
+      <StatefulService ServiceTypeName="BotActorServiceType" TargetReplicaSetSize="[BotActorService_TargetReplicaSetSize]" MinReplicaSetSize="[BotActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[BotActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+  </Services>
+</StartupServicesManifest>

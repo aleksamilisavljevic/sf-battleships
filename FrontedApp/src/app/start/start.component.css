@@ -1,0 +1,58 @@
+
+mat-grid-list {
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 10px;
+    height: 400px;
+    width: 400px;
+}
+.top-right-group {
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+    width: 100%;
+}
+.top-mid-group1 {
+    float: left;
+    display: block;
+    height: 500px;
+    width: 50%;
+    overflow: hidden;
+}
+.top-mid-group2 {
+    display: block;
+    height: 500px;
+    width: 50%;
+    overflow: hidden;
+}
+p {
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+button {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+.generic {
+    background: lightblue;
+}
+.clicked {
+    background: darkblue;
+}
+.miss {
+    background: darkgrey;
+}
+.hit {
+    background: darkred;
+}

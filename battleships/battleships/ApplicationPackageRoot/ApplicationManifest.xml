@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="battleshipsType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="API_ASPNETCORE_ENVIRONMENT" DefaultValue="" />
+  </Parameters>
+  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
+       should match the Name and Version attributes of the ServiceManifest element defined in the 
+       ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="BotLogicServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="AuthenticationServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <Policies>
+      <ConfigPackagePolicies CodePackageRef="Code">
+        <ConfigPackage Name="Config" SectionName="AuthenticationPasswordPepper" EnvironmentVariableName="C:\Users\aleksam\Documents\battleships\battleships\battleships\secrets" />
+        <ConfigPackage Name="Config" SectionName="AuthenticationJwtSettings" EnvironmentVariableName="C:\Users\aleksam\Documents\battleships\battleships\battleships\secrets" />
+      </ConfigPackagePolicies>
+    </Policies>
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="BotActorPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="RegistrationServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <Policies>
+      <ConfigPackagePolicies CodePackageRef="Code">
+        <ConfigPackage Name="Config" SectionName="RegistrationPasswordPepper" EnvironmentVariableName="C:\Users\aleksam\Documents\battleships\battleships\battleships\secrets" />
+      </ConfigPackagePolicies>
+    </Policies>
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="APIPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <EnvironmentOverrides CodePackageRef="code">
+      <EnvironmentVariable Name="ASPNETCORE_ENVIRONMENT" Value="[API_ASPNETCORE_ENVIRONMENT]" />
+    </EnvironmentOverrides>
+    <Policies>
+      <ConfigPackagePolicies CodePackageRef="Code">
+        <ConfigPackage Name="Config" SectionName="APIJwtSettings" EnvironmentVariableName="C:\Users\aleksam\Documents\battleships\battleships\battleships\secrets" />
+      </ConfigPackagePolicies>
+    </Policies>
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="UserDataPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+</ApplicationManifest>

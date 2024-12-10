@@ -1,0 +1,50 @@
+header {
+    display: block;
+    padding-inline: 16px;
+    padding-block: 8px;
+    background-color: #333;
+    color: white;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    font-size: 30px;
+    nav {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        > span {
+            cursor: pointer;
+            &:hover {
+                color: #777;
+            }
+        }
+        ul {
+            list-style-type: none;
+            justify-content: space-between;
+            li {
+                display: inline-block;
+                padding-left: 50px;
+                height: auto;
+                width: auto;
+                cursor: pointer;
+                &:hover {
+                    color: #777;
+                }
+            }
+        }
+    }
+}
+
+.b1 {
+    background-color: #333;
+    color: white;
+    font-size: 20px;
+    margin-left: auto; 
+    margin-right: 0;
+}
+
+.b2 {
+    margin-top: 0px;
+    margin-left: auto; 
+    margin-right: 0;
+}

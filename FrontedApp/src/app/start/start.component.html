@@ -1,0 +1,96 @@
+
+@if(started == 1)
+{
+        <div class="top-mid-group1">
+            <p> Player grid: </p>
+            <mat-grid-list cols="10" rowHeight="1:1">
+                @for (i1tem of createRange(10); track i1tem; let i = $index) {
+                    @for (i2tem of createRange(10); track i2tem; let j = $index) {
+                        @if(val[i][j]==1) {
+                            <mat-grid-tile class="clicked"></mat-grid-tile>
+                        }
+                        @else {
+                            @if(val[i][j]==2) {
+                                <mat-grid-tile class="miss"></mat-grid-tile>
+                            }
+                            @else {
+                                @if(val[i][j]==3) {
+                                    <mat-grid-tile class="hit"></mat-grid-tile>
+                                }
+                                @else {
+                                    <mat-grid-tile class="generic"></mat-grid-tile>
+                                }
+                            }
+                        }
+                    }
+                }
+            </mat-grid-list>
+        </div>
+        <div class="top-mid-group2">
+            <p> Bot grid: </p>
+            <mat-grid-list cols="10" rowHeight="1:1">
+                @for (i1tem of createRange(10); track i1tem; let i = $index) {
+                    @for (i2tem of createRange(10); track i2tem; let j = $index) {
+                        @if(bot[i][j]==0) {
+                            @if(won || lost) {
+                                <mat-grid-tile class="generic"></mat-grid-tile>
+                            }
+                            @else {
+                                <mat-grid-tile class="generic" (click)="guess(i,j)"></mat-grid-tile>
+                            }    
+                        }
+                        @else {
+                            @if(bot[i][j]==2) {
+                                <mat-grid-tile class="miss"></mat-grid-tile>
+                            }
+                            @else {
+                                <mat-grid-tile class="hit"></mat-grid-tile>
+                            }
+                        }
+                    }
+                }
+            </mat-grid-list>
+        </div>
+        @if(won || lost) {
+            @if(won) {
+                <p> Congratulations! You won! </p>
+            }
+            @else {
+                <p> You lost :( </p>
+            }
+            <button (click)="refresh()"> Play again </button>
+        }
+}
+@else
+{
+    <p> Please place: </p> 
+    <p> &emsp; {{two}} more boats of size two </p>
+    <p> &emsp; {{three}} more boats od size three </p>
+    <p> &emsp; {{four}} more boats of size four </p>
+    <p> &emsp; {{five}} more boats of size five </p>
+
+    <p> Please note that different boats can't be placed on adjacent fields. </p>
+
+    <div class="top-right-group">
+        <mat-grid-list cols="10" rowHeight="fit">
+            @for (i1tem of createRange(10); track i1tem; let i = $index) {
+                @for (i2tem of createRange(10); track i2tem; let j = $index) {
+                    @if(val[i][j]==1) {
+                        <mat-grid-tile class="clicked" (click)="clicked(i,j)"></mat-grid-tile>
+                    }
+                    @else {
+                        <mat-grid-tile class="generic" (click)="clicked(i,j)"></mat-grid-tile>
+                    }
+                }
+            }
+        </mat-grid-list>
+    </div>
+
+    @if(two+three+four+five==0 && ok) {
+        <p> Your placement is valid </p>
+        <button (click)="startGame()"> Start a game </button>
+    }
+    @else {
+        <p> Your placement of boats isn't valid </p>
+    }
+}

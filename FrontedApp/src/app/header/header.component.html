@@ -1,0 +1,20 @@
+<header>
+    <nav>
+       <span routerLink="/"> Battleships </span>
+       <ul>
+            @if (user) {
+                <li routerLink="/start"> New Game </li>
+            }
+            @else {
+                <li routerLink="/login"> Login </li>
+                <li routerLink="/register"> Register </li>
+            }
+       </ul>
+       @if(user) {
+           <button mat-button [matMenuTriggerFor]="menu" class="b1">{{user.username}}</button>
+           <mat-menu #menu="matMenu" class="b1">
+               <button mat-menu-item (click)="logout()" class="b2">Log out</button>
+           </mat-menu>
+       }
+    </nav>
+</header>

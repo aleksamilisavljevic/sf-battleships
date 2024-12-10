@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StartupServices xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="BotLogicService_InstanceCount" Value="1" />
+    <Parameter Name="AuthenticationService_InstanceCount" Value="1" />
+    <Parameter Name="RegistrationService_InstanceCount" Value="1" />
+    <Parameter Name="API_InstanceCount" Value="1" />
+    <Parameter Name="UserData_PartitionCount" Value="1" />
+    <Parameter Name="UserData_MinReplicaSetSize" Value="1" />
+    <Parameter Name="UserData_TargetReplicaSetSize" Value="1" />
+    <Parameter Name="BotActorService_PartitionCount" Value="1" />
+    <Parameter Name="BotActorService_TargetReplicaSetSize" Value="1" />
+    <Parameter Name="BotActorService_MinReplicaSetSize" Value="1" />
+  </Parameters>
+</StartupServices>

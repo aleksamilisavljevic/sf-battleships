@@ -1,0 +1,7 @@
+$json = '{"properties": {"kind": "inlinedValue", "contentType": "text/plain", "description": "jwtkey"}}'
+Invoke-WebRequest  -Uri http://localhost:19080/Resources/Secrets/jwtkey?api-version=6.4-preview -Method PUT -Body $json
+
+$Params = '{"properties": {"value": "n9auoifgcbne987aiufnvco8nusduioyenbsdfvciouewrvdbfc"}}'
+Invoke-WebRequest -Uri http://localhost:19080/Resources/Secrets/jwtkey/values/ver1?api-version=6.4-preview -Method PUT -Body $Params
+
+Invoke-WebRequest -Method POST -Uri "http://localhost:19080/Resources/Secrets/jwtkey/values/ver1/list_value?api-version=6.4-preview"
